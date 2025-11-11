@@ -1,0 +1,22 @@
+{
+  "name": "Containerd Development",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {
+      "version": "latest",
+      "moby": false
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "golang.go",
+        "ms-azuretools.vscode-docker"
+      ]
+    }
+  },
+  "postCreateCommand": "containerd --version && curl -fsSL https://claude.ai/install.sh | bash",
+  "remoteUser": "vscode"
+}
