@@ -6,7 +6,8 @@
   "features": {
     "ghcr.io/devcontainers/features/docker-in-docker:2": {
       "version": "latest",
-      "moby": false
+      "moby": true,
+      "dockerDashComposeVersion": "v2"
     }
   },
   "customizations": {
@@ -17,6 +18,7 @@
       ]
     }
   },
-  "postCreateCommand": "containerd --version && curl -fsSL https://claude.ai/install.sh | bash",
-  "remoteUser": "vscode"
+  "postCreateCommand": "bash -c 'containerd --version && curl -fsSL https://claude.ai/install.sh | bash && echo \"export PATH=$PATH:~/.local/bin\" >> ~/.bashrc'",
+  "remoteUser": "vscode",
+  "runArgs": ["--privileged"]
 }
